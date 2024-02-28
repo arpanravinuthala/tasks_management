@@ -2,8 +2,8 @@ const cron = require('node-cron');
 const twilio = require('twilio');
 
 // Twilio credentials
-const accountSid = 'AC1ac4cad690ab696cd5d7a1dc461291fd';
-const authToken = '3969cb6dc8a78bcb2bc85708a8c00087';
+const accountSid = 'my accountSid';
+const authToken = 'my authToken';
 const twilioClient = twilio(accountSid, authToken);
 
 // Function to change priority of tasks based on due date
