@@ -1,0 +1,125 @@
+################################################################### User ################################################################
+
+### User Creation
+POST http://localhost:3000/user-api/user
+Content-Type: application/json
+
+{
+    "id":1,
+    "username":"arpan",
+    "password":"arpan",
+    "phone_number": 9705612683,
+    "priority": 0
+}
+
+### User login
+GET http://localhost:3000/user-api/user-login
+Content-Type: application/json
+
+{
+    "username":"arpan",
+    "password":"arpan"
+}
+
+
+
+###################################################################### Task ###########################################################
+
+### Create a new Task
+POST http://localhost:3000/tasks-api/tasks
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA4OTYxOTk2LCJleHAiOjE3MDg5NjU1OTZ9.twwv525RHdS46P0NIsVnLLth4Z4XR2507X1CaIHrPTI
+Content-Type: application/json
+
+{
+    "title": "project1",
+    "description": "backend project",
+    "taskId": 1,
+    "due_date": "2024-02-28T12:00:00.000Z",
+    "status": "TODO"
+}
+
+
+### Get all tasks
+GET http://localhost:3000/tasks-api/tasks
+Authorization : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA5MTEyNTg1LCJleHAiOjE3MDkxMTYxODV9.OzxpBWm5nP_c83ZsyWnp1Q3-ljLbrpkWzKHzptw6h_k
+
+
+### Get all tasks which are todo
+GET http://localhost:3000/tasks-api/tasks_todo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA4OTU5NzQ2LCJleHAiOjE3MDg5NjMzNDZ9.zq9mjcznPJoaRf3Q1sde8nsgQb4nWqrTXflpoSxmZ2w
+
+
+### Get all tasks which are done
+GET http://localhost:3000/tasks-api/tasks_done
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA4OTU5NzQ2LCJleHAiOjE3MDg5NjMzNDZ9.zq9mjcznPJoaRf3Q1sde8nsgQb4nWqrTXflpoSxmZ2w
+
+
+### Get task by taskId
+GET http://localhost:3000/tasks-api/tasks/1
+Authorization : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA5MDI4NjIzLCJleHAiOjE3MDkwMzIyMjN9.FDF_vRnzt_Fvkk9ArNxt2V54_cjwUx_FJt4HpZK4exc
+
+
+### Update the task by taskId
+PUT http://localhost:3000/tasks-api/tasks/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA5MDI4NjIzLCJleHAiOjE3MDkwMzIyMjN9.FDF_vRnzt_Fvkk9ArNxt2V54_cjwUx_FJt4HpZK4exc
+Content-Type: application/json
+
+{
+    "title": "project1",
+    "description": "backend project",
+    "due_date": "2024-02-28T12:00:00.000Z",
+    "status": "TODO",
+    "taskId": 1
+}
+
+
+
+### Soft deletion of the task
+PUT http://localhost:3000/tasks-api/tasks_del/1
+Authorization : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA4OTU5NzQ2LCJleHAiOjE3MDg5NjMzNDZ9.zq9mjcznPJoaRf3Q1sde8nsgQb4nWqrTXflpoSxmZ2w
+
+
+### Restoring the task
+PUT http://localhost:3000/tasks-api/tasks_res/1
+Authorization : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA4OTU5NzQ2LCJleHAiOjE3MDg5NjMzNDZ9.zq9mjcznPJoaRf3Q1sde8nsgQb4nWqrTXflpoSxmZ2w
+
+
+
+################################################################### SubTask #############################################################
+
+### Create a new SubTask
+POST http://localhost:3000/subtasks-api/subtasks
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA5MDI4MTY2LCJleHAiOjE3MDkwMzE3NjZ9.zAR0n19rKaUaKjoQqIusC8PRhh7Gufe6FXjShXITZAg
+Content-Type: application/json
+
+{
+    "subtaskId": 3,
+    "taskId": 1,
+    "name" : "MongoDB Creation",
+    "status": 0
+}
+
+
+### Read all subtasks 
+GET http://localhost:3000/subtasks-api/subtasks
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA5MDI4NjIzLCJleHAiOjE3MDkwMzIyMjN9.FDF_vRnzt_Fvkk9ArNxt2V54_cjwUx_FJt4HpZK4exc
+
+
+### Update a subtask
+PUT http://localhost:3000/subtasks-api/subtasks/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA5MDI4NjIzLCJleHAiOjE3MDkwMzIyMjN9.FDF_vRnzt_Fvkk9ArNxt2V54_cjwUx_FJt4HpZK4exc
+Content-Type: application/json
+
+{
+    "status": 1
+}
+
+
+### Soft delete of subtask
+PUT http://localhost:3000/subtasks-api/subtasks_del/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA4OTU4MTk5LCJleHAiOjE3MDg5NjE3OTl9.B1nwbv-8vK4Gj9AnnSMP4HOEgo8UnvWp2zR7SPv193I
+
+
+### Restore the subtask
+PUT http://localhost:3000/subtasks-api/subtasks_res/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFycGFuIiwiaWF0IjoxNzA4OTU3NjAyLCJleHAiOjE3MDg5NjEyMDJ9.DwD0zqm3Ag8cCHdr-8xCz6Hi4tZQeWTDnhq-27LFgp0
